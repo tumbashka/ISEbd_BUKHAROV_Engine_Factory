@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,13 +47,55 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=5.11.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.4\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.4\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormCreateOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormCreateOrder.Designer.cs">
+      <DependentUpon>FormCreateOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetail.Designer.cs">
+      <DependentUpon>FormDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetails.Designer.cs">
+      <DependentUpon>FormDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEngine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEngine.Designer.cs">
+      <DependentUpon>FormEngine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEngineDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEngineDetail.Designer.cs">
+      <DependentUpon>FormEngineDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEngines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEngines.Designer.cs">
+      <DependentUpon>FormEngines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +108,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +121,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineFactoryBusinessLogic\EngineFactoryBusinessLogic.csproj">
+      <Project>{1b26f5e6-9475-44e0-ab2f-fd85c4187cca}</Project>
+      <Name>EngineFactoryBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EngineFactoryImplement\EngineFactoryImplement.csproj">
+      <Project>{fe71678c-8b18-439d-af03-14703f261bae}</Project>
+      <Name>EngineFactoryImplement</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
