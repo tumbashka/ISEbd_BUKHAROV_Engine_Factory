@@ -99,6 +99,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDetails.resx">
+      <DependentUpon>FormDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEngines.resx">
+      <DependentUpon>FormEngines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -126,6 +135,10 @@
     <ProjectReference Include="..\EngineFactoryBusinessLogic\EngineFactoryBusinessLogic.csproj">
       <Project>{1b26f5e6-9475-44e0-ab2f-fd85c4187cca}</Project>
       <Name>EngineFactoryBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EngineFactoryFileImplement\EngineFactoryFileImplement.csproj">
+      <Project>{5e4d5fca-794d-4c6c-aa9c-c96f5062239a}</Project>
+      <Name>EngineFactoryFileImplement</Name>
     </ProjectReference>
     <ProjectReference Include="..\EngineFactoryImplement\EngineFactoryImplement.csproj">
       <Project>{fe71678c-8b18-439d-af03-14703f261bae}</Project>

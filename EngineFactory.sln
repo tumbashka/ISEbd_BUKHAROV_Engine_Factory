@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineFactoryBusinessLogic"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineFactoryImplement", "EngineFactoryImplement\EngineFactoryImplement.csproj", "{FE71678C-8B18-439D-AF03-14703F261BAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineFactoryFileImplement", "EngineFactoryFileImplement\EngineFactoryFileImplement.csproj", "{5E4D5FCA-794D-4C6C-AA9C-C96F5062239A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FE71678C-8B18-439D-AF03-14703F261BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE71678C-8B18-439D-AF03-14703F261BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE71678C-8B18-439D-AF03-14703F261BAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4D5FCA-794D-4C6C-AA9C-C96F5062239A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4D5FCA-794D-4C6C-AA9C-C96F5062239A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4D5FCA-794D-4C6C-AA9C-C96F5062239A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4D5FCA-794D-4C6C-AA9C-C96F5062239A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
