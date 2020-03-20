@@ -32,11 +32,11 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
                         JustificationValues = JustificationValues.Center
                     }
                 }));
-                foreach (var component in info.Components)
+                foreach (var detail in info.Details)
                 {
                     docBody.AppendChild(CreateParagraph(new WordParagraph
                     {
-                        Texts = new List<string> { component.ComponentName },
+                        Texts = new List<string> { detail.DetailName },
                         TextProperties = new WordParagraphProperties
                         {
                             Size = "24",
