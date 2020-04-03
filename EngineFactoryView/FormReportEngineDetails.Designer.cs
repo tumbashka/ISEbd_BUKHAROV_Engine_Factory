@@ -1,4 +1,6 @@
-﻿namespace EngineFactoryView
+﻿using System;
+
+namespace EngineFactoryView
 {
     partial class FormReportEngineDetails
     {
@@ -28,83 +30,150 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSaveToExcel = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Columnforgeproduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ButtonSaveToExcel = new System.Windows.Forms.Button();
+            this.ButtonForm = new System.Windows.Forms.Button();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.labelFrom = new System.Windows.Forms.Label();
+            this.labelTo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonSaveToExcel
-            // 
-            this.buttonSaveToExcel.Location = new System.Drawing.Point(12, 12);
-            this.buttonSaveToExcel.Name = "buttonSaveToExcel";
-            this.buttonSaveToExcel.Size = new System.Drawing.Size(145, 32);
-            this.buttonSaveToExcel.TabIndex = 0;
-            this.buttonSaveToExcel.Text = "Сохранить в Excel";
-            this.buttonSaveToExcel.UseVisualStyleBackColor = true;
-            this.buttonSaveToExcel.Click += new System.EventHandler(this.ButtonSaveToExcel_Click);
-            // 
             // dataGridView
             // 
-            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2,
-            this.Column1,
-            this.Column3});
-            this.dataGridView.Location = new System.Drawing.Point(12, 65);
+            this.ColumnDateCreate,
+            this.Columnforgeproduct,
+            this.ColumnSum});
+            this.dataGridView.Location = new System.Drawing.Point(1, 84);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(734, 456);
-            this.dataGridView.TabIndex = 5;
+            this.dataGridView.RowHeadersWidth = 51;
+            this.dataGridView.Size = new System.Drawing.Size(760, 338);
+            this.dataGridView.TabIndex = 0;
             // 
-            // Column2
+            // ColumnDateCreate
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Деталь";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
+            this.ColumnDateCreate.HeaderText = "DateCreate";
+            this.ColumnDateCreate.MinimumWidth = 6;
+            this.ColumnDateCreate.Name = "ColumnDateCreate";
+            this.ColumnDateCreate.Width = 120;
             // 
-            // Column1
+            // Columnforgeproduct
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Двигатель";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
+            this.Columnforgeproduct.HeaderText = "Forge Product";
+            this.Columnforgeproduct.MinimumWidth = 6;
+            this.Columnforgeproduct.Name = "Columnforgeproduct";
+            this.Columnforgeproduct.Width = 125;
             // 
-            // Column3
+            // ColumnSum
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.FillWeight = 50F;
-            this.Column3.HeaderText = "Количество";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
+            this.ColumnSum.HeaderText = "Sum";
+            this.ColumnSum.MinimumWidth = 6;
+            this.ColumnSum.Name = "ColumnSum";
+            this.ColumnSum.Width = 125;
+            // 
+            // ButtonSaveToExcel
+            // 
+            this.ButtonSaveToExcel.Location = new System.Drawing.Point(13, 10);
+            this.ButtonSaveToExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonSaveToExcel.Name = "ButtonSaveToExcel";
+            this.ButtonSaveToExcel.Size = new System.Drawing.Size(163, 32);
+            this.ButtonSaveToExcel.TabIndex = 1;
+            this.ButtonSaveToExcel.Text = "Save to Excel";
+            this.ButtonSaveToExcel.UseVisualStyleBackColor = true;
+            this.ButtonSaveToExcel.Click += new System.EventHandler(this.ButtonSaveToExcel_Click);
+            // 
+            // ButtonForm
+            // 
+            this.ButtonForm.Location = new System.Drawing.Point(201, 10);
+            this.ButtonForm.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonForm.Name = "ButtonForm";
+            this.ButtonForm.Size = new System.Drawing.Size(135, 32);
+            this.ButtonForm.TabIndex = 2;
+            this.ButtonForm.Text = "Сформировать";
+            this.ButtonForm.UseVisualStyleBackColor = true;
+            this.ButtonForm.Click += new System.EventHandler(this.ButtonForm_Click);
+            // 
+            // dateTimePickerFrom
+            // 
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(69, 49);
+            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(185, 22);
+            this.dateTimePickerFrom.TabIndex = 3;
+            // 
+            // dateTimePickerTo
+            // 
+            this.dateTimePickerTo.Location = new System.Drawing.Point(319, 49);
+            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerTo.Name = "dateTimePickerTo";
+            this.dateTimePickerTo.Size = new System.Drawing.Size(191, 22);
+            this.dateTimePickerTo.TabIndex = 4;
+            // 
+            // labelFrom
+            // 
+            this.labelFrom.AutoSize = true;
+            this.labelFrom.Location = new System.Drawing.Point(15, 53);
+            this.labelFrom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFrom.Name = "labelFrom";
+            this.labelFrom.Size = new System.Drawing.Size(17, 17);
+            this.labelFrom.TabIndex = 5;
+            this.labelFrom.Text = "С";
+            // 
+            // labelTo
+            // 
+            this.labelTo.AutoSize = true;
+            this.labelTo.Location = new System.Drawing.Point(264, 53);
+            this.labelTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTo.Name = "labelTo";
+            this.labelTo.Size = new System.Drawing.Size(24, 17);
+            this.labelTo.TabIndex = 6;
+            this.labelTo.Text = "по";
             // 
             // FormReportEngineDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 534);
+            this.ClientSize = new System.Drawing.Size(763, 422);
+            this.Controls.Add(this.labelTo);
+            this.Controls.Add(this.labelFrom);
+            this.Controls.Add(this.dateTimePickerTo);
+            this.Controls.Add(this.dateTimePickerFrom);
+            this.Controls.Add(this.ButtonForm);
+            this.Controls.Add(this.ButtonSaveToExcel);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.buttonSaveToExcel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormReportEngineDetails";
-            this.Text = "FormReportEngineDetails";
+            this.Text = "Report Orders";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
+        }
+
+        private void ButtonMake_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
 
-        private System.Windows.Forms.Button buttonSaveToExcel;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button ButtonSaveToExcel;
+        private System.Windows.Forms.Button ButtonForm;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTo;
+        private System.Windows.Forms.Label labelFrom;
+        private System.Windows.Forms.Label labelTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateCreate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Columnforgeproduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSum;
     }
 }

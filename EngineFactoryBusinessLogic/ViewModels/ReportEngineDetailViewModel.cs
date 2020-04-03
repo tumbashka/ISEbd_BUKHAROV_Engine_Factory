@@ -7,7 +7,8 @@ namespace EngineFactoryBusinessLogic.ViewModels
     public class ReportEngineDetailViewModel
     {
         public string DetailName { get; set; }
-        public int TotalCount { get; set; }
-        public List<Tuple<string, int>> Engines { get; set; }
+        public string EngineName { get; set; }
+        public int Count { get; set; }
+        
     }
 }

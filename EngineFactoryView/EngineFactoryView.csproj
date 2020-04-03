@@ -243,6 +243,12 @@
     <Compile Include="FormReportEngineDetails.Designer.cs">
       <DependentUpon>FormReportEngineDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportOrders.Designer.cs">
+      <DependentUpon>FormReportOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -258,6 +264,9 @@
     <EmbeddedResource Include="FormReportEngineDetails.resx">
       <DependentUpon>FormReportEngineDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportOrders.resx">
+      <DependentUpon>FormReportOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -267,7 +276,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EngineFactoryBusinessLogic.ViewModels.DetailViewModel.datasource" />
+    <None Include="Properties\DataSources\EngineFactoryBusinessLogic.ViewModels.EngineViewModel.datasource" />
+    <None Include="Properties\DataSources\EngineFactoryBusinessLogic.ViewModels.OrderViewModel.datasource" />
+    <None Include="Properties\DataSources\EngineFactoryBusinessLogic.ViewModels.ReportEngineDetailViewModel.datasource" />
+    <None Include="Properties\DataSources\EngineFactoryBusinessLogic.ViewModels.ReportOrdersViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

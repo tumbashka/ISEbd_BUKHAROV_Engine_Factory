@@ -53,29 +53,38 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
                     ShareStringPart = shareStringPart,
                     ColumnName = "A",
                     RowIndex = 1,
-                    Text = info.Title,
-                    StyleIndex = 2U
+                    Text = info.Title + " с " + info.DateFrom.ToShortDateString() + " по " + info.DateTo.ToShortDateString(),
+                    StyleIndex = 1U
                 });
                 MergeCells(new ExcelMergeParameters
                 {
                     Worksheet = worksheetPart.Worksheet,
                     CellFromName = "A1",
-                    CellToName = "C1"
+                    CellToName = "E1"
                 });
                 uint rowIndex = 2;
-                foreach (var ed in info.EngineDetails)
+                List<DateTime> dates = new List<DateTime>();
+                foreach (var order in info.Orders)
                 {
+                    if (!dates.Contains(order.DateCreate.Date))
+                    {
+                        dates.Add(order.DateCreate.Date);
+                    }
+                }
+                foreach (var date in dates)
+                {
+                    decimal dateSum = 0;
                     InsertCellInWorksheet(new ExcelCellParameters
                     {
                         Worksheet = worksheetPart.Worksheet,
                         ShareStringPart = shareStringPart,
                         ColumnName = "A",
                         RowIndex = rowIndex,
-                        Text = ed.DetailName,
+                        Text = date.Date.ToShortDateString(),
                         StyleIndex = 0U
                     });
                     rowIndex++;
-                    foreach (var product in ed.Engines)
+                    foreach (var order in info.Orders.Where(rec => rec.DateCreate.Date == date.Date))
                     {
                         InsertCellInWorksheet(new ExcelCellParameters
                         {
@@ -83,7 +92,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
                             ShareStringPart = shareStringPart,
                             ColumnName = "B",
                             RowIndex = rowIndex,
-                            Text = product.Item1,
+                            Text = order.EngineName,
                             StyleIndex = 1U
                         });
                         InsertCellInWorksheet(new ExcelCellParameters
@@ -92,18 +101,28 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
                             ShareStringPart = shareStringPart,
                             ColumnName = "C",
                             RowIndex = rowIndex,
-                            Text = product.Item2.ToString(),
+                            Text = order.Sum.ToString(),
                             StyleIndex = 1U
                         });
+                        dateSum += order.Sum;
                         rowIndex++;
                     }
                     InsertCellInWorksheet(new ExcelCellParameters
                     {
                         Worksheet = worksheetPart.Worksheet,
                         ShareStringPart = shareStringPart,
+                        ColumnName = "A",
+                        RowIndex = rowIndex,
+                        Text = "Итого",
+                        StyleIndex = 0U
+                    });
+                    InsertCellInWorksheet(new ExcelCellParameters
+                    {
+                        Worksheet = worksheetPart.Worksheet,
+                        ShareStringPart = shareStringPart,
                         ColumnName = "C",
                         RowIndex = rowIndex,
-                        Text = ed.TotalCount.ToString(),
+                        Text = dateSum.ToString(),
                         StyleIndex = 0U
                     });
                     rowIndex++;
@@ -146,7 +165,8 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             Fills fills = new Fills() { Count = (UInt32Value)2U };
             Fill fill1 = new Fill();
             fill1.Append(new PatternFill() { PatternType = PatternValues.None });
-            Fill fill2 = new Fill(); fill2.Append(new PatternFill() { PatternType = PatternValues.Gray125 });
+            Fill fill2 = new Fill();
+            fill2.Append(new PatternFill() { PatternType = PatternValues.Gray125 });
             fills.Append(fill1);
             fills.Append(fill2);
             Borders borders = new Borders() { Count = (UInt32Value)2U };
@@ -245,10 +265,11 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
            VerticalAlignmentValues.Center,
                     WrapText = true,
                     Horizontal =
-           HorizontalAlignmentValues.Center
+    HorizontalAlignmentValues.Center
                 },
                 ApplyFont = true
-            }; cellFormats.Append(cellFormatFont);
+            };
+            cellFormats.Append(cellFormatFont);
             cellFormats.Append(cellFormatFontAndBorder);
             cellFormats.Append(cellFormatTitle);
             CellStyles cellStyles = new CellStyles() { Count = (UInt32Value)1U };
@@ -310,7 +331,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             sp.Stylesheet.Append(stylesheetExtensionList);
         }
         /// <summary>
-        /// Добааляем новую ячейку в лист
+        /// Добавляем новую ячейку в лист
         /// </summary>
         /// <param name="worksheet"></param>
         /// <param name="columnName"></param>
@@ -326,7 +347,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
            cellParameters.RowIndex).Count() != 0)
             {
                 row = sheetData.Elements<Row>().Where(r => r.RowIndex ==
-   cellParameters.RowIndex).First();
+    cellParameters.RowIndex).First();
             }
             else
             {

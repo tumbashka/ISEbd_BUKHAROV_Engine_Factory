@@ -23,36 +23,27 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
         }
         public List<ReportEngineDetailViewModel> GetEngineDetail()
         {
-            var details = detailLogic.Read(null);
-            var engines = engineLogic.Read(null);
+            var Details = detailLogic.Read(null);
+            var Engines = engineLogic.Read(null);
             var list = new List<ReportEngineDetailViewModel>();
-            foreach (var detail in details)
+            foreach (var Detail in Details)
             {
-                var record = new ReportEngineDetailViewModel
+                foreach (var Engine in Engines)
                 {
-                    DetailName = detail.DetailName,
-                    Engines = new List<Tuple<string, int>>(),
-                    TotalCount = 0
-                };
-                foreach (var engine in engines)
-                {
-                    if (engine.EngineDetails.ContainsKey(detail.Id))
+                    if (Engine.EngineDetails.ContainsKey(Detail.Id))
                     {
-                        record.Engines.Add(new Tuple<string, int>(engine.EngineName,
-                       engine.EngineDetails[detail.Id].Item2));
-                        record.TotalCount +=
-                       engine.EngineDetails[detail.Id].Item2;
+                        var record = new ReportEngineDetailViewModel
+                        {
+                            EngineName = Engine.EngineName,
+                            DetailName = Detail.DetailName,                            
+                            Count = Engine.EngineDetails[Detail.Id].Item2
+                        };
+                        list.Add(record);
                     }
                 }
-                list.Add(record);
             }
             return list;
         }
-        /// <summary>
-        /// Получение списка заказов за определенный период
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
         public List<ReportOrdersViewModel> GetOrders(ReportBindingModel model)
         {
             return orderLogic.Read(new OrderBindingModel
@@ -74,41 +65,37 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
         /// Сохранение компонент в файл-Word
         /// </summary>
         /// <param name="model"></param>
-        public void SaveDetailsToWordFile(ReportBindingModel model)
+        public void SaveEnginesToWordFile(ReportBindingModel model)
         {
             SaveToWord.CreateDoc(new WordInfo
             {
                 FileName = model.FileName,
-                Title = "Список деталь",
-                Details = detailLogic.Read(null)
+                Title = "Список двигателей",
+                Engines = engineLogic.Read(null)
             });
         }
         /// <summary>
         /// Сохранение компонент с указаеним продуктов в файл-Excel
         /// </summary>
         /// <param name="model"></param>
-        public void SaveEngineDetailToExcelFile(ReportBindingModel model)
+        public void SaveOrdersToExcelFile(ReportBindingModel model)
         {
             SaveToExcel.CreateDoc(new ExcelInfo
             {
+                DateFrom = model.DateFrom.Value,
+                DateTo = model.DateTo.Value,
                 FileName = model.FileName,
-                Title = "Список деталь",
-                EngineDetails = GetEngineDetail()
+                Title = "Список заказов",
+                Orders = GetOrders(model)
             });
         }
-        /// <summary>
-        /// Сохранение заказов в файл-Pdf
-        /// </summary>
-        /// <param name="model"></param>
-        public void SaveOrdersToPdfFile(ReportBindingModel model)
+        public void SaveEnginesToPdfFile(ReportBindingModel model)
         {
             SaveToPdf.CreateDoc(new PdfInfo
             {
                 FileName = model.FileName,
-                Title = "Список заказов",
-                DateFrom = model.DateFrom.Value,
-                DateTo = model.DateTo.Value,
-                Orders = GetOrders(model)
+                Title = "Список двигателей по деталям",
+                EngineDetails = GetEngineDetail(),
             });
         }
     }
