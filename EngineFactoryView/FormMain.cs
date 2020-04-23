@@ -143,13 +143,13 @@ namespace EngineFactoryView
 
         private void деталиДвигателейToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormReportOrders>();
-            form.ShowDialog();
+            var form = Container.Resolve<FormReportEngineDetails>();
+            form.ShowDialog(); 
         }
 
         private void списокЗаказовToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormReportEngineDetails>();
+            var form = Container.Resolve<FormReportOrders>();
             form.ShowDialog();
         }
     }

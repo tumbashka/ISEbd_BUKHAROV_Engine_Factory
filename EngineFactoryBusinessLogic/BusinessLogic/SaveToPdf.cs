@@ -30,20 +30,20 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             CreateRow(new PdfRowParameters
             {
                 Table = table,
-                Texts = new List<string> { "Закуска", "Продукт", "Количество" },
+                Texts = new List<string> { "Двигатель", "Деталь", "Количество" },
                 Style = "NormalTitle",
                 ParagraphAlignment = ParagraphAlignment.Center
             });
-            foreach (var sf in info.EngineDetails)
+            foreach (var ed in info.EngineDetails)
             {
                 CreateRow(new PdfRowParameters
                 {
                     Table = table,
                     Texts = new List<string>
                     {
-                        sf.EngineName,
-                        sf.DetailName,
-                        sf.Count.ToString()
+                        ed.EngineName,
+                        ed.DetailName,
+                        ed.Count.ToString()
                     },
                     Style = "Normal",
                     ParagraphAlignment = ParagraphAlignment.Left

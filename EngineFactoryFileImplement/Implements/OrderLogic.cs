@@ -61,7 +61,7 @@ namespace EngineFactoryFileImplement.Implements
             .Select(rec => new OrderViewModel
             {
                 Id = rec.Id,
-                EngineName = source.Engines.FirstOrDefault(x => x.Id == rec.EngineId)?.EngineName,
+                EngineName = GetEngineName(rec.EngineId),
                 Count = rec.Count,
                 Sum = rec.Sum,
                 Status = rec.Status,
@@ -69,6 +69,14 @@ namespace EngineFactoryFileImplement.Implements
                 DateImplement = rec.DateImplement
             })
             .ToList();
+        }
+
+        private string GetEngineName(int id)
+        {
+            string name = "";
+            var Engine = source.Engines.FirstOrDefault(x => x.Id == id);
+            name = Engine != null ? Engine.EngineName : "";
+            return name;
         }
     }
 }

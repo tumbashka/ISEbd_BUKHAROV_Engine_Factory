@@ -21,8 +21,7 @@ namespace EngineFactoryDatabaseImplement.Implements
                     Order element;
                     if (model.Id.HasValue)
                     {
-                        element = context.Orders.FirstOrDefault(rec => rec.Id ==
-                       model.Id);
+                        element = context.Orders.FirstOrDefault(rec => rec.Id == model.Id);
                         if (element == null)
                         {
                             throw new Exception("Элемент не найден");
@@ -47,8 +46,7 @@ namespace EngineFactoryDatabaseImplement.Implements
         {
             using (var context = new EngineFactoryDatabase())
             {
-                Order element = context.Orders.FirstOrDefault(rec => rec.Id ==
-model.Id);
+                Order element = context.Orders.FirstOrDefault(rec => rec.Id == model.Id);
                 if (element != null)
                 {
                     context.Orders.Remove(element);
@@ -64,20 +62,20 @@ model.Id);
         {
             using (var context = new EngineFactoryDatabase())
             {
-                return context.Orders
-            .Include(rec => rec.Engine)
-            .Where(rec => model == null || rec.Id == model.Id)
-            .Select(rec => new OrderViewModel
-            {
-                Id = rec.Id,
-                EngineName = rec.Engine.EngineName,
-                Count = rec.Count,
-                Sum = rec.Sum,
-                Status = rec.Status,
-                DateCreate = rec.DateCreate,
-                DateImplement = rec.DateImplement
-            })
-            .ToList();
+                return context.Orders.Where(rec => model == null || (rec.Id == model.Id && model.Id.HasValue)
+                || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo))
+                .Select(rec => new OrderViewModel
+                {
+                    Id = rec.Id,
+                    EngineId = rec.EngineId,
+                    DateCreate = rec.DateCreate,
+                    DateImplement = rec.DateImplement,
+                    Status = rec.Status,
+                    Count = rec.Count,
+                    Sum = rec.Sum,
+                    EngineName = rec.Engine.EngineName
+                })
+                .ToList();
             }
         }
     }

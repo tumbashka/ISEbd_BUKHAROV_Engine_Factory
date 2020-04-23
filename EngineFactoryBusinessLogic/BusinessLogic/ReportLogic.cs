@@ -23,43 +23,36 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
         }
         public List<ReportEngineDetailViewModel> GetEngineDetail()
         {
-            var Details = detailLogic.Read(null);
             var Engines = engineLogic.Read(null);
             var list = new List<ReportEngineDetailViewModel>();
-            foreach (var Detail in Details)
+            foreach (var Engine in Engines)
             {
-                foreach (var Engine in Engines)
+                foreach (var ed in Engine.EngineDetails)
                 {
-                    if (Engine.EngineDetails.ContainsKey(Detail.Id))
+                    var record = new ReportEngineDetailViewModel
                     {
-                        var record = new ReportEngineDetailViewModel
-                        {
-                            EngineName = Engine.EngineName,
-                            DetailName = Detail.DetailName,                            
-                            Count = Engine.EngineDetails[Detail.Id].Item2
-                        };
-                        list.Add(record);
-                    }
+                        EngineName = Engine.EngineName,
+                        DetailName = ed.Value.Item1,
+                        Count = ed.Value.Item2
+                    };
+                    //Console.WriteLine("Вывод прошел успешно");
+                    list.Add(record);
                 }
             }
             return list;
         }
-        public List<ReportOrdersViewModel> GetOrders(ReportBindingModel model)
+        public List<IGrouping<DateTime, OrderViewModel>> GetOrders(ReportBindingModel model)
         {
-            return orderLogic.Read(new OrderBindingModel
-            {
-                DateFrom = model.DateFrom,
-                DateTo = model.DateTo
-            })
-            .Select(x => new ReportOrdersViewModel
-            {
-                DateCreate = x.DateCreate,
-                EngineName = x.EngineName,
-                Count = x.Count,
-                Sum = x.Sum,
-                Status = x.Status
-            })
-           .ToList();
+            var list = orderLogic
+                        .Read(new OrderBindingModel
+                        {
+                            DateFrom = model.DateFrom,
+                            DateTo = model.DateTo
+                        })
+                        .GroupBy(rec => rec.DateCreate.Date)
+                        .OrderBy(recG => recG.Key)
+                        .ToList();
+            return list;
         }
         /// <summary>
         /// Сохранение компонент в файл-Word
@@ -82,8 +75,6 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
         {
             SaveToExcel.CreateDoc(new ExcelInfo
             {
-                DateFrom = model.DateFrom.Value,
-                DateTo = model.DateTo.Value,
                 FileName = model.FileName,
                 Title = "Список заказов",
                 Orders = GetOrders(model)
