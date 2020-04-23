@@ -19,6 +19,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 EngineId = model.EngineId,
+                ClientId = model.ClientId,
                 Count = model.Count,
                 Sum = model.Sum,
                 DateCreate = DateTime.Now,
@@ -42,6 +43,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 Id = order.Id,
+                ClientId = order.ClientId,
                 EngineId = order.EngineId,
                 Count = order.Count,
                 Sum = order.Sum,
@@ -67,6 +69,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 Id = order.Id,
+                ClientId = order.ClientId,
                 EngineId = order.EngineId,
                 Count = order.Count,
                 Sum = order.Sum,
@@ -92,6 +95,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 Id = order.Id,
+                ClientId = order.ClientId,
                 EngineId = order.EngineId,
                 Count = order.Count,
                 Sum = order.Sum,

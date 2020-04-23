@@ -7,17 +7,18 @@ using System.Text;
 namespace EngineFactoryBusinessLogic.ViewModels
 {
     [DataContract]
-    public class EngineViewModel
+    public class ClientViewModel
     {
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        [DisplayName("Название двигателя")]
-        public string EngineName { get; set; }
+        [DisplayName("ФИО")]
+        public string ClientFIO { get; set; }
         [DataMember]
-        [DisplayName("Цена")]
-        public decimal Price { get; set; }
+        [DisplayName("Логин")]
+        public string Email { get; set; }
         [DataMember]
-        public Dictionary<int, (string, int)> EngineDetails { get; set; }
+        [DisplayName("Пароль")]
+        public string Password { get; set; }
     }
 }

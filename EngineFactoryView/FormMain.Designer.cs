@@ -32,6 +32,7 @@
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.компонентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изделияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.клиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокДеталейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.деталиДвигателейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,8 @@
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.компонентыToolStripMenuItem,
-            this.изделияToolStripMenuItem});
+            this.изделияToolStripMenuItem,
+            this.клиентыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -80,6 +82,13 @@
             this.изделияToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
             this.изделияToolStripMenuItem.Text = "Двигатели";
             this.изделияToolStripMenuItem.Click += new System.EventHandler(this.ДвигателиToolStripMenuItem_Click);
+            //
+            // клиентыToolStripMenuItem
+            // 
+            this.клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
+            this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.клиентыToolStripMenuItem.Text = "Клиенты";
+            this.клиентыToolStripMenuItem.Click += new System.EventHandler(this.клиентыToolStripMenuItem_Click);
             // 
             // отчетыToolStripMenuItem
             // 
@@ -218,5 +227,6 @@
         private System.Windows.Forms.ToolStripMenuItem списокДеталейToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem деталиДвигателейToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокЗаказовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem клиентыToolStripMenuItem;
     }
 }

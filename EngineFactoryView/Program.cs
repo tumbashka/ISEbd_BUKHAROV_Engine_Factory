@@ -31,6 +31,8 @@ namespace EngineFactoryView
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<IOrderLogic, OrderLogic>(new
            HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IClientLogic, ClientLogic>(new
+           HierarchicalLifetimeManager());
             currentContainer.RegisterType<IEngineLogic, EngineLogic>(new
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<MainLogic>(new HierarchicalLifetimeManager());

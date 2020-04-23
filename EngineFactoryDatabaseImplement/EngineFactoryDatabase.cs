@@ -1,7 +1,7 @@
 ﻿using EngineFactoryDatabaseImplements.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EngineFactoryDatabaseImplements
+namespace EngineFactoryDatabaseImplement
 {
     public class EngineFactoryDatabase : DbContext
     {
@@ -17,5 +17,6 @@ namespace EngineFactoryDatabaseImplements
         public virtual DbSet<Engine> Engines { set; get; }
         public virtual DbSet<EngineDetail> EngineDetails { set; get; }
         public virtual DbSet<Order> Orders { set; get; }
+        public virtual DbSet<Client> Clients { set; get; }
     }
 }
