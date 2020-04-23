@@ -35,7 +35,6 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
                         DetailName = ed.Value.Item1,
                         Count = ed.Value.Item2
                     };
-                    //Console.WriteLine("Вывод прошел успешно");
                     list.Add(record);
                 }
             }
