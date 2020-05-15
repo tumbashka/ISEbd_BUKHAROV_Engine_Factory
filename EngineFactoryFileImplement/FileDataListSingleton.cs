@@ -15,16 +15,19 @@ namespace EngineFactoryFileImplement
         private readonly string OrderFileName = "C:\\Users\\Михан\\Documents\\EngineFactory\\Order.xml";
         private readonly string EngineFileName = "C:\\Users\\Михан\\Documents\\EngineFactory\\Engine.xml";
         private readonly string EngineDetailFileName = "C:\\Users\\Михан\\Documents\\EngineFactory\\EngineDetail.xml";
+        private readonly string ClientFileName = "C:\\Users\\Михан\\Documents\\EngineFactory\\Client.xml";
         public List<Detail> Details { get; set; }
         public List<Order> Orders { get; set; }
         public List<Engine> Engines { get; set; }
         public List<EngineDetail> EngineDetails { get; set; }
+        public List<Client> Clients { get; set; }
         private FileDataListSingleton()
         {
             Details = LoadDetails();
             Orders = LoadOrders();
             Engines = LoadEngines();
             EngineDetails = LoadEngineDetails();
+            Clients = LoadClients();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -40,6 +43,27 @@ namespace EngineFactoryFileImplement
             SaveOrders();
             SaveEngines();
             SaveEngineDetails();
+            SaveClients();
+        }
+        private List<Client> LoadClients()
+        {
+            var list = new List<Client>();
+            if (File.Exists(ClientFileName))
+            {
+                XDocument xDocument = XDocument.Load(ClientFileName);
+                var xElements = xDocument.Root.Elements("Client").ToList();
+                foreach (var elem in xElements)
+                {
+                    list.Add(new Client
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        ClientFIO = elem.Element("ClientFIO").Value,
+                        Email = elem.Element("Email").Value,
+                        Password = elem.Element("Password").Value
+                    });
+                }
+            }
+            return list;
         }
         private List<Detail> LoadDetails()
         {
@@ -74,6 +98,7 @@ namespace EngineFactoryFileImplement
                         EngineId = Convert.ToInt32(elem.Element("EngineId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         Sum = Convert.ToDecimal(elem.Element("Sum").Value),
+                        ClientId = Convert.ToInt32(elem.Element("ClientId").Value),
                         Status = (OrderStatus)Enum.Parse(typeof(OrderStatus),
                    elem.Element("Status").Value),
                         DateCreate =
@@ -124,6 +149,25 @@ namespace EngineFactoryFileImplement
             }
             return list;
         }
+        private void SaveClients()
+        {
+            if (Clients != null)
+            {
+                var xElement = new XElement("Clients");
+
+                foreach (var client in Clients)
+                {
+                    xElement.Add(new XElement("Client",
+                    new XAttribute("Id", client.Id),
+                    new XElement("ClientFIO", client.ClientFIO),
+                    new XElement("Email", client.Email),
+                    new XElement("Password", client.Password)));
+                }
+
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(ClientFileName);
+            }
+        }
         private void SaveDetails()
         {
             if (Details != null)
@@ -149,6 +193,7 @@ namespace EngineFactoryFileImplement
                     xElement.Add(new XElement("Order",
                     new XAttribute("Id", order.Id),
                     new XElement("EngineId", order.EngineId),
+                    new XElement("ClientId", order.ClientId),
                     new XElement("Count", order.Count),
                     new XElement("Sum", order.Sum),
                     new XElement("Status", order.Status),

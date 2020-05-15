@@ -7,13 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineFactoryView", "Engine
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineFactoryBusinessLogic", "EngineFactoryBusinessLogic\EngineFactoryBusinessLogic.csproj", "{1B26F5E6-9475-44E0-AB2F-FD85C4187CCA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineFactoryImplement", "EngineFactoryImplement\EngineFactoryImplement.csproj", "{FE71678C-8B18-439D-AF03-14703F261BAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineFactoryListImplement", "EngineFactoryImplement\EngineFactoryListImplement.csproj", "{FE71678C-8B18-439D-AF03-14703F261BAE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineFactoryFileImplement", "EngineFactoryFileImplement\EngineFactoryFileImplement.csproj", "{5E4D5FCA-794D-4C6C-AA9C-C96F5062239A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineFactoryDatabaseImplement", "EngineFactoryDatabaseImplement\EngineFactoryDatabaseImplement.csproj", "{5A639393-5A01-4D27-BEB3-C1FB94A928F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineFactoryRestApi", "EngineFactoryRestApi\EngineFactoryRestApi.csproj", "{2FBC4A4D-8EFC-48AB-A46A-1B57B1F77973}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineFactoryRestApi", "EngineFactoryRestApi\EngineFactoryRestApi.csproj", "{2FBC4A4D-8EFC-48AB-A46A-1B57B1F77973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineFactoryClientView", "EngineFactoryClientView\EngineFactoryClientView.csproj", "{36D8768E-35A4-4710-B93E-4C42329891B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{2FBC4A4D-8EFC-48AB-A46A-1B57B1F77973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FBC4A4D-8EFC-48AB-A46A-1B57B1F77973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FBC4A4D-8EFC-48AB-A46A-1B57B1F77973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D8768E-35A4-4710-B93E-4C42329891B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D8768E-35A4-4710-B93E-4C42329891B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D8768E-35A4-4710-B93E-4C42329891B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D8768E-35A4-4710-B93E-4C42329891B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

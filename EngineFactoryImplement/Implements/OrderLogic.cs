@@ -60,37 +60,39 @@ namespace EngineFactoryListImplement.Implements
         public List<OrderViewModel> Read(OrderBindingModel model)
         {
             List<OrderViewModel> result = new List<OrderViewModel>();
-            foreach (var Order in source.Orders)
+            foreach (var order in source.Orders)
             {
                 if (model != null)
                 {
-                    if (Order.Id == model.Id || (model.DateFrom.HasValue && model.DateTo.HasValue && Order.DateCreate >= model.DateFrom && Order.DateCreate <= model.DateTo))
+                    if (order.Id == model.Id || (model.DateFrom.HasValue && model.DateTo.HasValue && order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo)
+                        || model.ClientId.HasValue && order.ClientId == model.ClientId)
                     {
-                        result.Add(CreateViewModel(Order));
+                        result.Add(CreateViewModel(order));
                         break;
                     }
                     continue;
                 }
-                result.Add(CreateViewModel(Order));
+                result.Add(CreateViewModel(order));
             }
             return result;
         }
-        private Order CreateModel(OrderBindingModel model, Order Order)
+        private Order CreateModel(OrderBindingModel model, Order order)
         {
-            Order.EngineId = model.EngineId == 0 ? Order.EngineId : model.EngineId;
-            Order.Count = model.Count;
-            Order.Sum = model.Sum;
-            Order.Status = model.Status;
-            Order.DateCreate = model.DateCreate;
-            Order.DateImplement = model.DateImplement;
-            return Order;
+            order.EngineId = model.EngineId == 0 ? order.EngineId : model.EngineId;
+            order.ClientId = (int)model.ClientId;
+            order.Count = model.Count;
+            order.Sum = model.Sum;
+            order.Status = model.Status;
+            order.DateCreate = model.DateCreate;
+            order.DateImplement = model.DateImplement;
+            return order;
         }
-        private OrderViewModel CreateViewModel(Order Order)
+        private OrderViewModel CreateViewModel(Order order)
         {
             string engineName = "";
             for (int j = 0; j < source.Engines.Count; ++j)
             {
-                if (source.Engines[j].Id == Order.EngineId)
+                if (source.Engines[j].Id == order.EngineId)
                 {
                     engineName = source.Engines[j].EngineName;
                     break;
@@ -98,13 +100,13 @@ namespace EngineFactoryListImplement.Implements
             }
             return new OrderViewModel
             {
-                Id = Order.Id,
+                Id = order.Id,
                 EngineName = engineName,
-                Count = Order.Count,
-                Sum = Order.Sum,
-                Status = Order.Status,
-                DateCreate = Order.DateCreate,
-                DateImplement = Order.DateImplement
+                Count = order.Count,
+                Sum = order.Sum,
+                Status = order.Status,
+                DateCreate = order.DateCreate,
+                DateImplement = order.DateImplement
             };
         }
     }

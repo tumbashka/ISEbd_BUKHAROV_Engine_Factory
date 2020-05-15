@@ -1,13 +1,14 @@
-﻿using EngineFactoryBusinessLogic.BindingModels;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using EngineFactoryBusinessLogic.BindingModels;
 using EngineFactoryBusinessLogic.BusinessLogic;
 using EngineFactoryBusinessLogic.Interfaces;
 using EngineFactoryBusinessLogic.ViewModels;
 using EngineFactoryRestApi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EngineFactoryRestApi.Controllers
 {
@@ -25,12 +26,12 @@ namespace EngineFactoryRestApi.Controllers
             _main = main;
         }
         [HttpGet]
-        public List<EngineModel> GetProductList() => _engine.Read(null)?.Select(rec =>
+        public List<EngineModel> GetEngineList() => _engine.Read(null)?.Select(rec =>
        Convert(rec)).ToList();
         [HttpGet]
-        public EngineModel GetProduct(int productId) => Convert(_engine.Read(new
+        public EngineModel GetEngine(int engineId) => Convert(_engine.Read(new
        EngineBindingModel
-        { Id = productId })?[0]);
+        { Id = engineId })?[0]);
         [HttpGet]
         public List<OrderViewModel> GetOrders(int clientId) => _order.Read(new
        OrderBindingModel

@@ -2,10 +2,6 @@
 using EngineFactoryBusinessLogic.Interfaces;
 using EngineFactoryBusinessLogic.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EngineFactoryRestApi.Controllers
 {
@@ -19,9 +15,11 @@ namespace EngineFactoryRestApi.Controllers
             _logic = logic;
         }
         [HttpGet]
-        public ClientViewModel Login(string login, string password) => _logic.Read(new
-       ClientBindingModel
-        { Email = login, Password = password })?[0];
+        public ClientViewModel Login(string login, string password) => _logic.Read(new ClientBindingModel
+        { 
+            Email = login, 
+            Password = password 
+        })?[0];
         [HttpPost]
         public void Register(ClientBindingModel model) => _logic.CreateOrUpdate(model);
         [HttpPost]

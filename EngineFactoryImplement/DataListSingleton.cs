@@ -12,12 +12,14 @@ namespace EngineFactoryListImplement
         public List<Order> Orders { get; set; }
         public List<Engine> Engines { get; set; }
         public List<EngineDetail> EngineDetails { get; set; }
+        public List<Client> Clients { get; set; }
         private DataListSingleton()
         {
             Details = new List<Detail>();
             Orders = new List<Order>();
             Engines = new List<Engine>();
             EngineDetails = new List<EngineDetail>();
+            Clients = new List<Client>();
         }
         public static DataListSingleton GetInstance()
         {
