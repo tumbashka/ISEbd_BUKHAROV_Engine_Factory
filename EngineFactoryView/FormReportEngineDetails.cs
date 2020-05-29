@@ -57,10 +57,5 @@ namespace EngineFactoryView
                 }
             }
         }
-
-        private void FormReportEngineDetails_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
