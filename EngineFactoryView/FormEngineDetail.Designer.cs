@@ -43,7 +43,7 @@
             this.labelDetail.Name = "labelDetail";
             this.labelDetail.Size = new System.Drawing.Size(66, 13);
             this.labelDetail.TabIndex = 0;
-            this.labelDetail.Text = "Компонент:";
+            this.labelDetail.Text = "Деталь:";
             // 
             // labelCount
             // 
