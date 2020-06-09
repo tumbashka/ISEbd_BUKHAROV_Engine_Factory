@@ -2,7 +2,7 @@
 
 namespace EngineFactoryDatabaseImplement.Migrations
 {
-    public partial class ThreeMigration : Migration
+    public partial class newImplementersMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

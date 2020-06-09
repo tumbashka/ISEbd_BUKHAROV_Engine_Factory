@@ -22,7 +22,8 @@ namespace EngineFactoryDatabaseImplement.Implements
                     Order element;
                     if (model.Id.HasValue)
                     {
-                        element = context.Orders.FirstOrDefault(rec => rec.Id == model.Id);
+                        element = context.Orders.FirstOrDefault(rec => rec.Id ==
+                       model.Id);
                         if (element == null)
                         {
                             throw new Exception("Элемент не найден");
@@ -34,13 +35,13 @@ namespace EngineFactoryDatabaseImplement.Implements
                         context.Orders.Add(element);
                     }
                     element.EngineId = model.EngineId == 0 ? element.EngineId : model.EngineId;
-                    element.Count = model.Count;
-                    element.DateCreate = model.DateCreate;
-                    element.DateImplement = model.DateImplement;
                     element.ClientId = model.ClientId.Value;
                     element.ImplementerId = model.ImplementerId;
-                    element.Status = model.Status;
+                    element.Count = model.Count;
                     element.Sum = model.Sum;
+                    element.Status = model.Status;
+                    element.DateCreate = model.DateCreate;
+                    element.DateImplement = model.DateImplement;
                     context.SaveChanges();
                 }
             }
@@ -49,7 +50,8 @@ namespace EngineFactoryDatabaseImplement.Implements
         {
             using (var context = new EngineFactoryDatabase())
             {
-                Order element = context.Orders.FirstOrDefault(rec => rec.Id == model.Id);
+                Order element = context.Orders.FirstOrDefault(rec => rec.Id ==
+model.Id);
                 if (element != null)
                 {
                     context.Orders.Remove(element);
@@ -77,15 +79,14 @@ namespace EngineFactoryDatabaseImplement.Implements
                     ClientId = rec.ClientId,
                     ImplementerId = rec.ImplementerId,
                     EngineId = rec.EngineId,
-                    DateCreate = rec.DateCreate,
-                    DateImplement = rec.DateImplement,
-                    Status = rec.Status,
                     Count = rec.Count,
                     Sum = rec.Sum,
+                    Status = rec.Status,
+                    DateCreate = rec.DateCreate,
+                    DateImplement = rec.DateImplement,
+                    EngineName = rec.Engine.EngineName,
                     ClientFIO = rec.Client.ClientFIO,
-                    ImplementerFIO = rec.ImplementerId.HasValue ?
-                rec.Implementer.ImplementerFIO : string.Empty,
-                    EngineName = rec.Engine.EngineName
+                    ImplementerFIO = rec.ImplementerId.HasValue ? rec.Implementer.ImplementerFIO : string.Empty
                 })
                 .ToList();
             }

@@ -29,6 +29,7 @@ namespace EngineFactoryFileImplement
             Orders = LoadOrders();
             Engines = LoadEngines();
             EngineDetails = LoadEngineDetails();
+            Clients = LoadClients();
             Implementers = LoadImplementers();
         }
         public static FileDataListSingleton GetInstance()
@@ -51,6 +52,7 @@ namespace EngineFactoryFileImplement
         private List<Implementer> LoadImplementers()
         {
             var list = new List<Implementer>();
+
             if (File.Exists(ImplementerFileName))
             {
                 XDocument xDocument = XDocument.Load(ImplementerFileName);
@@ -178,6 +180,7 @@ namespace EngineFactoryFileImplement
             if (Implementers != null)
             {
                 var xElement = new XElement("Implementers");
+
                 foreach (var implementer in Implementers)
                 {
                     xElement.Add(new XElement("Implementer",
@@ -186,6 +189,7 @@ namespace EngineFactoryFileImplement
                     new XElement("WorkingTime", implementer.WorkingTime),
                     new XElement("PauseTime", implementer.PauseTime)));
                 }
+
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(ImplementerFileName);
             }

@@ -58,7 +58,7 @@ namespace EngineFactoryView
             this.запускРаботToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1236, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1344, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,7 +141,7 @@ namespace EngineFactoryView
             // 
             // buttonCreateOrder
             // 
-            this.buttonCreateOrder.Location = new System.Drawing.Point(1020, 55);
+            this.buttonCreateOrder.Location = new System.Drawing.Point(1128, 55);
             this.buttonCreateOrder.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCreateOrder.Name = "buttonCreateOrder";
             this.buttonCreateOrder.Size = new System.Drawing.Size(203, 30);
@@ -152,7 +152,7 @@ namespace EngineFactoryView
             // 
             // buttonPayOrder
             // 
-            this.buttonPayOrder.Location = new System.Drawing.Point(1020, 151);
+            this.buttonPayOrder.Location = new System.Drawing.Point(1128, 151);
             this.buttonPayOrder.Margin = new System.Windows.Forms.Padding(4);
             this.buttonPayOrder.Name = "buttonPayOrder";
             this.buttonPayOrder.Size = new System.Drawing.Size(203, 30);
@@ -163,7 +163,7 @@ namespace EngineFactoryView
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(1020, 103);
+            this.buttonRef.Location = new System.Drawing.Point(1128, 103);
             this.buttonRef.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(203, 30);
@@ -181,14 +181,14 @@ namespace EngineFactoryView
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1000, 490);
+            this.dataGridView.Size = new System.Drawing.Size(1108, 490);
             this.dataGridView.TabIndex = 7;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1236, 554);
+            this.ClientSize = new System.Drawing.Size(1344, 554);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonPayOrder);
@@ -204,11 +204,6 @@ namespace EngineFactoryView
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
-
-        private void buttonCreateOrder_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

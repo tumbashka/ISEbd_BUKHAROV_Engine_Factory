@@ -15,8 +15,24 @@ namespace EngineFactoryDatabaseImplement.Implements
         {
             using (var context = new EngineFactoryDatabase())
             {
-                Implementer element = context.Implementers.FirstOrDefault(rec => rec.Id == model.Id);
-                if (element == null)
+                Implementer element = context.Implementers.FirstOrDefault(rec => rec.ImplementerFIO == model.ImplementerFIO && rec.Id != model.Id);
+                if (element != null)
+                {
+                    throw new Exception("Уже есть исполнитель с таким именем");
+                }
+                if (model.Id.HasValue)
+                {
+                    element = context.Implementers.FirstOrDefault(rec => rec.Id == model.Id);
+                    if (model.Id.HasValue)
+                    {
+                        if (element == null)
+                        {
+                            throw new Exception("Элемент не найден");
+                        }
+
+                    }
+                }
+                else
                 {
                     element = new Implementer();
                     context.Implementers.Add(element);
@@ -24,7 +40,6 @@ namespace EngineFactoryDatabaseImplement.Implements
                 element.ImplementerFIO = model.ImplementerFIO;
                 element.WorkingTime = model.WorkingTime;
                 element.PauseTime = model.PauseTime;
-
                 context.SaveChanges();
             }
         }
@@ -33,6 +48,7 @@ namespace EngineFactoryDatabaseImplement.Implements
             using (var context = new EngineFactoryDatabase())
             {
                 Implementer element = context.Implementers.FirstOrDefault(rec => rec.Id == model.Id);
+
                 if (element != null)
                 {
                     context.Implementers.Remove(element);
@@ -44,6 +60,7 @@ namespace EngineFactoryDatabaseImplement.Implements
                 }
             }
         }
+
         public List<ImplementerViewModel> Read(ImplementerBindingModel model)
         {
             using (var context = new EngineFactoryDatabase())

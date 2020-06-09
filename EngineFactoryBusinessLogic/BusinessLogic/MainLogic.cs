@@ -11,6 +11,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
     {
         private readonly IOrderLogic orderLogic;
         private readonly object locker = new object();
+
         public MainLogic(IOrderLogic orderLogic)
         {
             this.orderLogic = orderLogic;
@@ -51,8 +52,8 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
                 {
                     Id = order.Id,
                     ClientId = order.ClientId,
-                    ImplementerId = model.ImplementerId,
                     EngineId = order.EngineId,
+                    ImplementerId = model.ImplementerId,
                     Count = order.Count,
                     Sum = order.Sum,
                     DateCreate = order.DateCreate,
@@ -79,12 +80,12 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 EngineId = order.EngineId,
                 Count = order.Count,
                 Sum = order.Sum,
-                ImplementerId = order.ImplementerId,
                 DateCreate = order.DateCreate,
-                DateImplement = order.DateImplement,
+                DateImplement = DateTime.Now,
                 Status = OrderStatus.Готов
             });
         }
@@ -106,15 +107,14 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 EngineId = order.EngineId,
                 Count = order.Count,
                 Sum = order.Sum,
-                ImplementerId = order.ImplementerId,
                 DateCreate = order.DateCreate,
                 DateImplement = order.DateImplement,
                 Status = OrderStatus.Оплачен
             });
         }
-
     }
 }

@@ -16,6 +16,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
         private readonly MainLogic mainLogic;
 
         private readonly Random rnd;
+
         public WorkModeling(IImplementerLogic implementerLogic, IOrderLogic orderLogic, MainLogic mainLogic)
         {
             this.implementerLogic = implementerLogic;

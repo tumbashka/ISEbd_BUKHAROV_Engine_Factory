@@ -17,16 +17,20 @@ namespace EngineFactoryView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
+
         private readonly IImplementerLogic logic;
+
         public FormImplementers(IImplementerLogic logic)
         {
             InitializeComponent();
             this.logic = logic;
         }
+
         private void FormImplementers_Load(object sender, EventArgs e)
         {
             LoadData();
         }
+
         private void LoadData()
         {
             try
@@ -44,6 +48,7 @@ namespace EngineFactoryView
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormImplementer>();
@@ -53,6 +58,7 @@ namespace EngineFactoryView
                 LoadData();
             }
         }
+
         private void buttonUpd_Click(object sender, EventArgs e)
         {
             if (dataGridView.SelectedRows.Count == 1)
@@ -66,6 +72,7 @@ namespace EngineFactoryView
                 }
             }
         }
+
         private void buttonDel_Click(object sender, EventArgs e)
         {
             if (dataGridView.SelectedRows.Count == 1)
@@ -85,6 +92,7 @@ namespace EngineFactoryView
                 }
             }
         }
+
         private void buttonRef_Click(object sender, EventArgs e)
         {
             LoadData();
