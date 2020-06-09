@@ -85,8 +85,6 @@ namespace EngineFactoryView
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormReportEngineDetails";
             this.Text = "Отчет по закускам с продуктами";
-            this.Load += new System.EventHandler(this.FormReportEngineDetails_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ReportEngineDetailViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

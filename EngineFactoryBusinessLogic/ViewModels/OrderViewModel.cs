@@ -16,10 +16,15 @@ namespace EngineFactoryBusinessLogic.ViewModels
         [DataMember]
         public int ClientId { get; set; }
         [DataMember]
+        public int? ImplementerId { get; set; }
+        [DataMember]
         public int EngineId { get; set; }
         [DataMember]
         [DisplayName("Клиент")]
         public string ClientFIO { get; set; }
+        [DataMember]
+        [DisplayName("Исполнитель")]
+        public string ImplementerFIO { get; set; }
         [DataMember]
         [DisplayName("Двигатель")]
         public string EngineName { get; set; }

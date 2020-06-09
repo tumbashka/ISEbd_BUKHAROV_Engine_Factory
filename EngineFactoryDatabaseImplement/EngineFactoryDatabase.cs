@@ -1,4 +1,4 @@
-﻿using EngineFactoryDatabaseImplements.Models;
+﻿using EngineFactoryDatabaseImplement.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EngineFactoryDatabaseImplement
@@ -18,5 +18,6 @@ namespace EngineFactoryDatabaseImplement
         public virtual DbSet<EngineDetail> EngineDetails { set; get; }
         public virtual DbSet<Order> Orders { set; get; }
         public virtual DbSet<Client> Clients { set; get; }
+        public virtual DbSet<Implementer> Implementers { set; get; }
     }
 }

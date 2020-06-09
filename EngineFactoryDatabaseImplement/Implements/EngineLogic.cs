@@ -1,8 +1,8 @@
 ﻿using EngineFactoryBusinessLogic.BindingModels;
 using EngineFactoryBusinessLogic.Interfaces;
 using EngineFactoryBusinessLogic.ViewModels;
-using EngineFactoryDatabaseImplements;
-using EngineFactoryDatabaseImplements.Models;
+using EngineFactoryDatabaseImplement;
+using EngineFactoryDatabaseImplement.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

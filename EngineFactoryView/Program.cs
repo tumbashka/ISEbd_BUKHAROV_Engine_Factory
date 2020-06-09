@@ -1,4 +1,5 @@
-﻿using EngineFactoryBusinessLogic.BusinessLogic;
+﻿using EngineFactoryBusinessLogic;
+using EngineFactoryBusinessLogic.BusinessLogic;
 using EngineFactoryBusinessLogic.Interfaces;
 using EngineFactoryDatabaseImplement.Implements;
 using System;
@@ -27,17 +28,13 @@ namespace EngineFactoryView
         private static IUnityContainer BuildUnityContainer()
         {
             var currentContainer = new UnityContainer();
-            currentContainer.RegisterType<IDetailLogic, DetailLogic>(new
-           HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IOrderLogic, OrderLogic>(new
-           HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IClientLogic, ClientLogic>(new
-           HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IEngineLogic, EngineLogic>(new
-           HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IDetailLogic, DetailLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IOrderLogic, OrderLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IClientLogic, ClientLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IImplementerLogic, ImplementerLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IEngineLogic, EngineLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<MainLogic>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<ReportLogic>(new
-           HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ReportLogic>(new HierarchicalLifetimeManager());
             return currentContainer;
         }
     }

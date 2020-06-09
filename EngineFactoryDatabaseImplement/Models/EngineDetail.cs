@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace EngineFactoryDatabaseImplements.Models
+namespace EngineFactoryDatabaseImplement.Models
 {
     public class EngineDetail
     {
