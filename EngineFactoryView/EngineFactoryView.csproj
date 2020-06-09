@@ -285,6 +285,9 @@
     <EmbeddedResource Include="FormDetails.resx">
       <DependentUpon>FormDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEngine.resx">
+      <DependentUpon>FormEngine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEngines.resx">
       <DependentUpon>FormEngines.cs</DependentUpon>
     </EmbeddedResource>
