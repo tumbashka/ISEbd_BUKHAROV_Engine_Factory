@@ -18,33 +18,38 @@ namespace EngineFactoryListImplement.Implements
         }
         public void CreateOrUpdate(ImplementerBindingModel model)
         {
-            Implementer element = source.Implementers.FirstOrDefault(rec => rec.ImplementerFIO == model.ImplementerFIO && rec.Id != model.Id);
-            if (element != null)
+            Implementer tempImplementer = new Implementer 
+            { 
+                Id = 1 
+            };
+            foreach (var implementer in source.Implementers)
             {
-                throw new Exception("Уже есть исполнитель с таким именем");
+                if (implementer.ImplementerFIO == model.ImplementerFIO && implementer.Id != model.Id)
+                {
+                    throw new Exception("Такой исполнитель уже существует");
+                }
+                if (!model.Id.HasValue && implementer.Id >= tempImplementer.Id)
+                {
+                    tempImplementer.Id = implementer.Id + 1;
+                }
+                else if (model.Id.HasValue && implementer.Id == model.Id)
+                {
+                    tempImplementer = implementer;
+                }
             }
             if (model.Id.HasValue)
             {
-                element = source.Implementers.FirstOrDefault(rec => rec.Id == model.Id);
-                if (model.Id.HasValue)
+                if (tempImplementer == null)
                 {
-                    if (element == null)
-                    {
-                        throw new Exception("Элемент не найден");
-                    }
-
+                    throw new Exception("Исполнитель не найден");
                 }
+                CreateModel(model, tempImplementer);
             }
             else
             {
-                element = new Implementer();
-                source.Implementers.Add(element);
+                source.Implementers.Add(CreateModel(model, tempImplementer));
             }
-            element.ImplementerFIO = model.ImplementerFIO;
-            element.WorkingTime = model.WorkingTime;
-            element.PauseTime = model.PauseTime;
         }
-
         public void Delete(ImplementerBindingModel model)
         {
             for (int i = 0; i < source.Implementers.Count; ++i)
