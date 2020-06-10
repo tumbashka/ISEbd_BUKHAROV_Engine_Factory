@@ -80,8 +80,8 @@ namespace EngineFactoryListImplement.Implements
             return result;
         }
         private Order CreateModel(OrderBindingModel model, Order order)
-        {
-            order.EngineId = model.EngineId == 0 ? order.EngineId : model.EngineId;
+        {      
+            order.EngineId = model.EngineId;
             order.ClientId = (int)model.ClientId;
             order.Count = model.Count;
             order.ImplementerId = model.ImplementerId;

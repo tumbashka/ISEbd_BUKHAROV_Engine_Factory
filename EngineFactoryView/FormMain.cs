@@ -2,13 +2,6 @@
 using EngineFactoryBusinessLogic.BusinessLogic;
 using EngineFactoryBusinessLogic.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
@@ -133,6 +126,11 @@ namespace EngineFactoryView
         private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormClients>();
+            form.ShowDialog();
+        }
+        private void buttonMessages_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormMessages>();
             form.ShowDialog();
         }
     }

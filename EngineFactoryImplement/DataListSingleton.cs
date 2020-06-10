@@ -14,6 +14,7 @@ namespace EngineFactoryListImplement
         public List<EngineDetail> EngineDetails { get; set; }
         public List<Client> Clients { get; set; }
         public List<Implementer> Implementers { get; set; }
+        public List<MessageInfo> MessageInfoes { get; set; }
         private DataListSingleton()
         {
             Details = new List<Detail>();
@@ -22,6 +23,7 @@ namespace EngineFactoryListImplement
             EngineDetails = new List<EngineDetail>();
             Clients = new List<Client>();
             Implementers = new List<Implementer>();
+            MessageInfoes = new List<MessageInfo>();
         }
         public static DataListSingleton GetInstance()
         {

@@ -31,6 +31,7 @@ namespace EngineFactoryRestApi
             services.AddTransient<IClientLogic, ClientLogic>();
             services.AddTransient<IOrderLogic, OrderLogic>();
             services.AddTransient<IEngineLogic, EngineLogic>();
+            services.AddTransient<IMessageInfoLogic, MessageInfoLogic>();
             services.AddTransient<MainLogic>();
             services.AddControllers();
         }
