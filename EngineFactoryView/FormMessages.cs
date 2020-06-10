@@ -16,22 +16,15 @@ namespace EngineFactoryView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-
         private readonly IMessageInfoLogic logic;
 
         public FormMessages(IMessageInfoLogic logic)
         {
-            this.logic = logic;
-
             InitializeComponent();
+            this.logic = logic;
         }
 
         private void FormMessages_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void LoadData()
         {
             try
             {

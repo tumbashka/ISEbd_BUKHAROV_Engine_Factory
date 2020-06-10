@@ -7,7 +7,8 @@ namespace EngineFactoryDatabaseImplement.Models
 {
     public class MessageInfo
     {
-        [Key] public string MessageId { get; set; }
+        [Key] 
+        public string MessageId { get; set; }
         public int? ClientId { get; set; }
         public string SenderName { get; set; }
         public DateTime DateDelivery { get; set; }

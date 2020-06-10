@@ -15,7 +15,7 @@ namespace EngineFactoryRestApi.Controllers
         private readonly IClientLogic _logic;
         private readonly IMessageInfoLogic _messageLogic;
         private readonly int _passwordMaxLength = 50;
-        private readonly int _passwordMinLength = 10;
+        private readonly int _passwordMinLength = 8;
         public ClientController(IClientLogic logic, IMessageInfoLogic messageLogic)
         {
             _logic = logic;

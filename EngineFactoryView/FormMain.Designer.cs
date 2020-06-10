@@ -41,10 +41,10 @@ namespace EngineFactoryView
             this.деталиДвигателейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокЗаказовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.запускРаботToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сообщенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonPayOrder = new System.Windows.Forms.Button();
-            this.buttonRef = new System.Windows.Forms.Button();
-            this.buttonMessages = new System.Windows.Forms.Button();
+            this.buttonRef = new System.Windows.Forms.Button();           
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -69,7 +69,8 @@ namespace EngineFactoryView
             this.компонентыToolStripMenuItem,
             this.изделияToolStripMenuItem,
             this.клиентыToolStripMenuItem,
-            this.исполнителиToolStripMenuItem});
+            this.исполнителиToolStripMenuItem,
+            this.сообщенияToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(117, 26);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -173,15 +174,12 @@ namespace EngineFactoryView
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.buttonRef_Click);
             // 
-            // buttonMessages
-            // 
-            this.buttonMessages.Location = new System.Drawing.Point(815, 175);
-            this.buttonMessages.Name = "buttonMessages";
-            this.buttonMessages.Size = new System.Drawing.Size(202, 28);
-            this.buttonMessages.TabIndex = 7;
-            this.buttonMessages.Text = "Сообщения";
-            this.buttonMessages.UseVisualStyleBackColor = true;
-            this.buttonMessages.Click += new System.EventHandler(this.buttonMessages_Click);
+            // сообщенияToolStripMenuItem
+            //  
+            this.сообщенияToolStripMenuItem.Name = "сообщенияToolStripMenuItem";
+            this.сообщенияToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сообщенияToolStripMenuItem.Text = "Сообщения";
+            this.сообщенияToolStripMenuItem.Click += new System.EventHandler(this.сообщенияToolStripMenuItem_Click);
             // 
             // dataGridView
             // 
@@ -201,7 +199,6 @@ namespace EngineFactoryView
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 554);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.buttonMessages);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonPayOrder);
             this.Controls.Add(this.buttonCreateOrder);
@@ -225,8 +222,7 @@ namespace EngineFactoryView
         private System.Windows.Forms.ToolStripMenuItem изделияToolStripMenuItem;
         private System.Windows.Forms.Button buttonCreateOrder;
         private System.Windows.Forms.Button buttonPayOrder;
-        private System.Windows.Forms.Button buttonRef;
-        private System.Windows.Forms.Button buttonMessages;
+        private System.Windows.Forms.Button buttonRef;        
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокДеталейToolStripMenuItem;
@@ -235,5 +231,6 @@ namespace EngineFactoryView
         private System.Windows.Forms.ToolStripMenuItem клиентыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem исполнителиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem запускРаботToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сообщенияToolStripMenuItem;
     }
 }

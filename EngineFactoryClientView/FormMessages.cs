@@ -17,11 +17,6 @@ namespace EngineFactoryClientView
         }
         private void FormMessages_Load(object sender, EventArgs e)
         {
-            LoadData();
-        }
-
-        private void LoadData()
-        {
             try
             {
                 var list = APIClient.GetRequest<List<MessageInfoViewModel>>($"api/client/getmessages?clientId={Program.Client.Id}");

@@ -21,7 +21,7 @@ namespace EngineFactoryDatabaseImplement.Models
         [Required]
         public DateTime DateCreate { get; set; }
         public DateTime? DateImplement { get; set; }
-        public virtual Engine Engine { get; set; }
+        public Engine Engine { get; set; }
         public Client Client { get; set; }
         public Implementer Implementer { get; set; }
     }

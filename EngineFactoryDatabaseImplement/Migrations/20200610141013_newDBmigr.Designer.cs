@@ -4,14 +4,16 @@ using EngineFactoryDatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EngineFactoryDatabaseImplement.Migrations
 {
     [DbContext(typeof(EngineFactoryDatabase))]
-    partial class EngineFactoryDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20200610141013_newDBmigr")]
+    partial class newDBmigr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -211,7 +213,7 @@ namespace EngineFactoryDatabaseImplement.Migrations
             modelBuilder.Entity("EngineFactoryDatabaseImplement.Models.MessageInfo", b =>
                 {
                     b.HasOne("EngineFactoryDatabaseImplement.Models.Client", "Client")
-                        .WithMany("MessageInfoes")
+                        .WithMany("Messages")
                         .HasForeignKey("ClientId");
                 });
 

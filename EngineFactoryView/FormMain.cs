@@ -128,7 +128,7 @@ namespace EngineFactoryView
             var form = Container.Resolve<FormClients>();
             form.ShowDialog();
         }
-        private void buttonMessages_Click(object sender, EventArgs e)
+        private void сообщенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormMessages>();
             form.ShowDialog();

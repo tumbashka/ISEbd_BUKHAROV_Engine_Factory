@@ -21,16 +21,28 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
 
         private static string mailPassword;
 
-        public static void MailConfig(MailConfig config) { smtpClientHost = config.SmtpClientHost; smtpClientPort = config.SmtpClientPort; mailLogin = config.MailLogin; mailPassword = config.MailPassword; }
+        public static void MailConfig(MailConfig config) 
+        { 
+            smtpClientHost = config.SmtpClientHost; 
+            smtpClientPort = config.SmtpClientPort; 
+            mailLogin = config.MailLogin; 
+            mailPassword = config.MailPassword; 
+        }
 
         public static async void MailSendAsync(MailSendInfo info)
         {
-            if (string.IsNullOrEmpty(smtpClientHost) || smtpClientPort == 0) { return; }
-
-            if (string.IsNullOrEmpty(mailLogin) || string.IsNullOrEmpty(mailPassword)) { return; }
-
-            if (string.IsNullOrEmpty(info.MailAddress) || string.IsNullOrEmpty(info.Subject) || string.IsNullOrEmpty(info.Text)) { return; }
-
+            if (string.IsNullOrEmpty(smtpClientHost) || smtpClientPort == 0) 
+            { 
+                return; 
+            }
+            if (string.IsNullOrEmpty(mailLogin) || string.IsNullOrEmpty(mailPassword)) 
+            { 
+                return; 
+            }
+            if (string.IsNullOrEmpty(info.MailAddress) || string.IsNullOrEmpty(info.Subject) || string.IsNullOrEmpty(info.Text)) 
+            { 
+                return; 
+            }
             using (var objMailMessage = new MailMessage())
             {
                 using (var objSmtpClient = new SmtpClient(smtpClientHost, smtpClientPort))
@@ -38,8 +50,6 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
                     try
                     {
                         objMailMessage.From = new MailAddress(mailLogin);
-
-
                         objMailMessage.To.Add(new MailAddress(info.MailAddress));
                         objMailMessage.Subject = info.Subject;
                         objMailMessage.Body = info.Text;
@@ -74,8 +84,7 @@ namespace EngineFactoryBusinessLogic.BusinessLogic
             {
                 await Task.Run(() =>
                 {
-                    client.Connect(info.PopHost, info.PopPort,
-                  SecureSocketOptions.SslOnConnect);
+                    client.Connect(info.PopHost, info.PopPort, SecureSocketOptions.SslOnConnect);
                     client.Authenticate(mailLogin, mailPassword);
                     for (int i = 0; i < client.Count; i++)
                     {
