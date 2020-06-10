@@ -184,7 +184,7 @@ namespace EngineFactoryDatabaseImplement.Migrations
             modelBuilder.Entity("EngineFactoryDatabaseImplement.Models.Order", b =>
                 {
                     b.HasOne("EngineFactoryDatabaseImplement.Models.Client", "Client")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

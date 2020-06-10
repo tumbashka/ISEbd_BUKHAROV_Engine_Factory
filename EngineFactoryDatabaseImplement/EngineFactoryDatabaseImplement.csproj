@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200609113518_newImplementersMigration.cs" />
+    <Compile Remove="Migrations\20200609113518_newImplementersMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200609144406_ImplementersMigr.cs" />
+    <Compile Remove="Migrations\20200609144406_ImplementersMigr.Designer.cs" />
+    <Compile Remove="Migrations\20200610061751_Implementers.cs" />
+    <Compile Remove="Migrations\20200610061751_Implementers.Designer.cs" />
+    <Compile Remove="Migrations\20200610061907_Implementers2.cs" />
+    <Compile Remove="Migrations\20200610061907_Implementers2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.11.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.4" />

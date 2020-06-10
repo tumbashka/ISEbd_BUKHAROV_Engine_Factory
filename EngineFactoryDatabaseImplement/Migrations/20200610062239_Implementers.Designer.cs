@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EngineFactoryDatabaseImplement.Migrations
 {
     [DbContext(typeof(EngineFactoryDatabase))]
-    [Migration("20200609144406_ImplementersMigr")]
-    partial class ImplementersMigr
+    [Migration("20200610062239_Implementers")]
+    partial class Implementers
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -186,7 +186,7 @@ namespace EngineFactoryDatabaseImplement.Migrations
             modelBuilder.Entity("EngineFactoryDatabaseImplement.Models.Order", b =>
                 {
                     b.HasOne("EngineFactoryDatabaseImplement.Models.Client", "Client")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
