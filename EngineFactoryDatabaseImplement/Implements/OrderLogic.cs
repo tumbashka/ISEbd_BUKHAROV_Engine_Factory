@@ -73,21 +73,24 @@ model.Id);
                     || model.ClientId.HasValue && rec.ClientId == model.ClientId
                     || model.FreeOrders.HasValue && model.FreeOrders.Value && !rec.ImplementerId.HasValue
                     || model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId && rec.Status == OrderStatus.Выполняется)
-                .Select(rec => new OrderViewModel
-                {
-                    Id = rec.Id,
-                    ClientId = rec.ClientId,
-                    ImplementerId = rec.ImplementerId,
-                    EngineId = rec.EngineId,
-                    Count = rec.Count,
-                    Sum = rec.Sum,
-                    Status = rec.Status,
-                    DateCreate = rec.DateCreate,
-                    DateImplement = rec.DateImplement,
-                    EngineName = rec.Engine.EngineName,
-                    ClientFIO = rec.Client.ClientFIO,
-                    ImplementerFIO = rec.ImplementerId.HasValue ? rec.Implementer.ImplementerFIO : string.Empty
-                })
+                  .Include(rec => rec.Engine)
+                .Include(rec => rec.Client)
+                .Include(rec => rec.Implementer)
+                    .Select(rec => new OrderViewModel
+                    {
+                        Id = rec.Id,
+                        ClientId = rec.ClientId,
+                        ImplementerId = rec.ImplementerId,
+                        EngineId = rec.EngineId,
+                        Count = rec.Count,
+                        Sum = rec.Sum,
+                        Status = rec.Status,
+                        DateCreate = rec.DateCreate,
+                        DateImplement = rec.DateImplement,
+                        EngineName = rec.Engine.EngineName,
+                        ClientFIO = rec.Client.ClientFIO,
+                        ImplementerFIO = rec.ImplementerId.HasValue ? rec.Implementer.ImplementerFIO : string.Empty
+                    })
                 .ToList();
             }
         }
