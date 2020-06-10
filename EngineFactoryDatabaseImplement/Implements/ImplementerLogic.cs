@@ -27,7 +27,7 @@ namespace EngineFactoryDatabaseImplement.Implements
                     {
                         if (element == null)
                         {
-                            throw new Exception("Элемент не найден");
+                            throw new Exception("Исполнитель не найден");
                         }
 
                     }
