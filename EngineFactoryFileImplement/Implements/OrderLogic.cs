@@ -64,7 +64,6 @@ namespace EngineFactoryFileImplement.Implements
             {
                 Id = rec.Id,
                 EngineName = GetEngineName(rec.EngineId),
-                EngineId = rec.EngineId,
                 ClientId = rec.ClientId,
                 ClientFIO = source.Clients.FirstOrDefault(recC => recC.Id == rec.ClientId)?.ClientFIO,
                 Count = rec.Count,
