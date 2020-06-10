@@ -53,7 +53,7 @@ namespace EngineFactoryClientView
         }
         private void сообщенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new FormMessages();
+            var form = new FormMessage();
 
             form.ShowDialog();
         }

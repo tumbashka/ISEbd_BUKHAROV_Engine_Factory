@@ -9,13 +9,13 @@ using System.Windows.Forms;
 
 namespace EngineFactoryClientView
 {
-    public partial class FormMessages : Form
+    public partial class FormMessage : Form
     {
-        public FormMessages()
+        public FormMessage()
         {
             InitializeComponent();
         }
-        private void FormMessages_Load(object sender, EventArgs e)
+        private void FormMessage_Load(object sender, EventArgs e)
         {
             try
             {

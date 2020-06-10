@@ -1,6 +1,6 @@
 ﻿namespace EngineFactoryClientView
 {
-    partial class FormMessages
+    partial class FormMessage
     {
         /// <summary>
         /// Required designer variable.
@@ -47,9 +47,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 434);
             this.Controls.Add(this.dataGridView);
-            this.Name = "FormMessages";
+            this.Name = "FormMessage";
             this.Text = "Сообщения";
-            this.Load += new System.EventHandler(this.FormMessages_Load);
+            this.Load += new System.EventHandler(this.FormMessage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
