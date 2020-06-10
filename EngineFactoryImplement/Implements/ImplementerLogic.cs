@@ -60,7 +60,7 @@ namespace EngineFactoryListImplement.Implements
                     return;
                 }
             }
-            throw new Exception("Элемент не найден");
+            throw new Exception("Исполнитель не найден");
         }
         public List<ImplementerViewModel> Read(ImplementerBindingModel model)
         {
