@@ -40,10 +40,9 @@ namespace EngineFactoryView
             // 
             // buttonMake
             // 
-            this.buttonMake.Location = new System.Drawing.Point(17, 7);
-            this.buttonMake.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMake.Location = new System.Drawing.Point(13, 6);
             this.buttonMake.Name = "buttonMake";
-            this.buttonMake.Size = new System.Drawing.Size(156, 25);
+            this.buttonMake.Size = new System.Drawing.Size(117, 20);
             this.buttonMake.TabIndex = 4;
             this.buttonMake.Text = "Сформировать";
             this.buttonMake.UseVisualStyleBackColor = true;
@@ -51,10 +50,9 @@ namespace EngineFactoryView
             // 
             // buttonToPdf
             // 
-            this.buttonToPdf.Location = new System.Drawing.Point(203, 7);
-            this.buttonToPdf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonToPdf.Location = new System.Drawing.Point(152, 6);
             this.buttonToPdf.Name = "buttonToPdf";
-            this.buttonToPdf.Size = new System.Drawing.Size(192, 25);
+            this.buttonToPdf.Size = new System.Drawing.Size(144, 20);
             this.buttonToPdf.TabIndex = 5;
             this.buttonToPdf.Text = "в Pdf";
             this.buttonToPdf.UseVisualStyleBackColor = true;
@@ -63,11 +61,10 @@ namespace EngineFactoryView
             // reportViewer
             // 
             this.reportViewer.LocalReport.ReportEmbeddedResource = "EngineFactoryView.Report.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(17, 39);
-            this.reportViewer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reportViewer.Location = new System.Drawing.Point(13, 32);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(874, 375);
+            this.reportViewer.Size = new System.Drawing.Size(656, 305);
             this.reportViewer.TabIndex = 1;
             // 
             // ReportEngineDetailViewModelBindingSource
@@ -76,15 +73,15 @@ namespace EngineFactoryView
             // 
             // FormReportEngineDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 427);
+            this.ClientSize = new System.Drawing.Size(687, 347);
             this.Controls.Add(this.reportViewer);
             this.Controls.Add(this.buttonToPdf);
             this.Controls.Add(this.buttonMake);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormReportEngineDetails";
-            this.Text = "Отчет по закускам с продуктами";
+            this.Text = "Отчет по двигателям с деталями";
+            ((System.ComponentModel.ISupportInitialize)(this.ReportEngineDetailViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
