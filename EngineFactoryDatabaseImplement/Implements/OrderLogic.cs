@@ -50,8 +50,7 @@ namespace EngineFactoryDatabaseImplement.Implements
         {
             using (var context = new EngineFactoryDatabase())
             {
-                Order element = context.Orders.FirstOrDefault(rec => rec.Id ==
-model.Id);
+                Order element = context.Orders.FirstOrDefault(rec => rec.Id == model.Id);
                 if (element != null)
                 {
                     context.Orders.Remove(element);

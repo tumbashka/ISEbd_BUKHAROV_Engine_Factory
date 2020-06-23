@@ -46,14 +46,14 @@ namespace EngineFactoryDatabaseImplement.Implements
                         context.SaveChanges();
                         if (model.Id.HasValue)
                         {
-                            var productDetails = context.EngineDetails.Where(rec
+                            var engineDetails = context.EngineDetails.Where(rec
                            => rec.EngineId == model.Id.Value).ToList();
                             // удалили те, которых нет в модели
-                            context.EngineDetails.RemoveRange(productDetails.Where(rec =>
+                            context.EngineDetails.RemoveRange(engineDetails.Where(rec =>
                             !model.EngineDetails.ContainsKey(rec.DetailId)).ToList());
                             context.SaveChanges();
                             // обновили количество у существующих записей
-                            foreach (var updateDetail in productDetails)
+                            foreach (var updateDetail in engineDetails)
                             {
                                 updateDetail.Count =
                                model.EngineDetails[updateDetail.DetailId].Item2;
@@ -63,13 +63,13 @@ namespace EngineFactoryDatabaseImplement.Implements
                             context.SaveChanges();
                         }
                         // добавили новые
-                        foreach (var pc in model.EngineDetails)
+                        foreach (var ed in model.EngineDetails)
                         {
                             context.EngineDetails.Add(new EngineDetail
                             {
                                 EngineId = element.Id,
-                                DetailId = pc.Key,
-                                Count = pc.Value.Item2
+                                DetailId = ed.Key,
+                                Count = ed.Value.Item2
                             });
                             context.SaveChanges();
                         }
