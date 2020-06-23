@@ -43,7 +43,7 @@
             this.labelEngine.Name = "labelEngine";
             this.labelEngine.Size = new System.Drawing.Size(54, 13);
             this.labelEngine.TabIndex = 0;
-            this.labelEngine.Text = "Изделие:";
+            this.labelEngine.Text = "Двигатель:";
             //
             // comboBoxEngine
             // 
