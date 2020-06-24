@@ -33,9 +33,9 @@
             this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
             this.buttonMake = new System.Windows.Forms.Button();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEngine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,9 +45,9 @@
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2,
-            this.Column1,
-            this.Column3});
+            this.ColumnDate,
+            this.ColumnEngine,
+            this.ColumnPrice});
             this.dataGridView.Location = new System.Drawing.Point(15, 48);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView.Name = "dataGridView";
@@ -61,7 +61,7 @@
             // buttonSaveToExcel
             // 
             this.buttonSaveToExcel.Location = new System.Drawing.Point(617, 48);
-            this.buttonSaveToExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSaveToExcel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSaveToExcel.Name = "buttonSaveToExcel";
             this.buttonSaveToExcel.Size = new System.Drawing.Size(204, 36);
             this.buttonSaveToExcel.TabIndex = 17;
@@ -72,7 +72,7 @@
             // dateTimePickerFrom
             // 
             this.dateTimePickerFrom.Location = new System.Drawing.Point(16, 17);
-            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(181, 22);
             this.dateTimePickerFrom.TabIndex = 18;
@@ -80,7 +80,7 @@
             // dateTimePickerTo
             // 
             this.dateTimePickerTo.Location = new System.Drawing.Point(240, 17);
-            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.Size = new System.Drawing.Size(185, 22);
             this.dateTimePickerTo.TabIndex = 19;
@@ -88,7 +88,7 @@
             // buttonMake
             // 
             this.buttonMake.Location = new System.Drawing.Point(617, 92);
-            this.buttonMake.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMake.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMake.Name = "buttonMake";
             this.buttonMake.Size = new System.Drawing.Size(204, 33);
             this.buttonMake.TabIndex = 20;
@@ -96,26 +96,26 @@
             this.buttonMake.UseVisualStyleBackColor = true;
             this.buttonMake.Click += new System.EventHandler(this.buttonMake_Click);
             // 
-            // Column2
+            // ColumnDate
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Дата";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
+            this.ColumnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDate.HeaderText = "Дата";
+            this.ColumnDate.MinimumWidth = 6;
+            this.ColumnDate.Name = "ColumnDate";
             // 
-            // Column1
+            // ColumnEngine
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Двигатель";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
+            this.ColumnEngine.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnEngine.HeaderText = "Двигатель";
+            this.ColumnEngine.MinimumWidth = 6;
+            this.ColumnEngine.Name = "ColumnEngine";
             // 
-            // Column3
+            // ColumnPrice
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Цена";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
+            this.ColumnPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnPrice.HeaderText = "Цена";
+            this.ColumnPrice.MinimumWidth = 6;
+            this.ColumnPrice.Name = "ColumnPrice";
             // 
             // FormReportOrders
             // 
@@ -127,7 +127,7 @@
             this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.buttonSaveToExcel);
             this.Controls.Add(this.dataGridView);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormReportOrders";
             this.Text = "Отчет по заказам";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -141,8 +141,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private System.Windows.Forms.DateTimePicker dateTimePickerTo;
         private System.Windows.Forms.Button buttonMake;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEngine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrice;
     }
 }
