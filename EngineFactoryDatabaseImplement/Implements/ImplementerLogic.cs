@@ -23,13 +23,9 @@ namespace EngineFactoryDatabaseImplement.Implements
                 if (model.Id.HasValue)
                 {
                     element = context.Implementers.FirstOrDefault(rec => rec.Id == model.Id);
-                    if (model.Id.HasValue)
+                    if (element == null)
                     {
-                        if (element == null)
-                        {
-                            throw new Exception("Исполнитель не найден");
-                        }
-
+                        throw new Exception("Исполнитель не найден");
                     }
                 }
                 else

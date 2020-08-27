@@ -67,16 +67,13 @@ namespace EngineFactoryDatabaseImplement.Implements
             using (var context = new EngineFactoryDatabase())
             {
                 return context.Orders.Where(rec => model == null
-                    || rec.Id == model.Id && model.Id.HasValue
-                    || model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo
-                    || model.ClientId.HasValue && rec.ClientId == model.ClientId
-                    || model.FreeOrders.HasValue && model.FreeOrders.Value && !rec.ImplementerId.HasValue
-                    || model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId && rec.Status == OrderStatus.Выполняется)
-                  .Include(rec => rec.Engine)
-                .Include(rec => rec.Client)
-                .Include(rec => rec.Implementer)
-                    .Select(rec => new OrderViewModel
-                    {
+                     || (rec.Id == model.Id && model.Id.HasValue)
+                    || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
+                    || (model.ClientId.HasValue && rec.ClientId == model.ClientId)
+                    || (model.FreeOrders.HasValue && model.FreeOrders.Value && !rec.ImplementerId.HasValue)
+                    || (model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId && rec.Status == OrderStatus.Выполняется))
+                .Select(rec => new OrderViewModel
+                {
                         Id = rec.Id,
                         ClientId = rec.ClientId,
                         ImplementerId = rec.ImplementerId,

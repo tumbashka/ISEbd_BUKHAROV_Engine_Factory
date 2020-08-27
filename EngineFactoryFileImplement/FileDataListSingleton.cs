@@ -176,6 +176,7 @@ namespace EngineFactoryFileImplement
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         Sum = Convert.ToDecimal(elem.Element("Sum").Value),
                         ClientId = Convert.ToInt32(elem.Element("ClientId").Value),
+                        ImplementerId = Convert.ToInt32(elem.Attribute("ImplementerId").Value),
                         Status = (OrderStatus)Enum.Parse(typeof(OrderStatus),
                    elem.Element("Status").Value),
                         DateCreate =
@@ -290,6 +291,7 @@ namespace EngineFactoryFileImplement
                     new XAttribute("Id", order.Id),
                     new XElement("EngineId", order.EngineId),
                     new XElement("ClientId", order.ClientId),
+                    new XElement("ImplementerId", order.ImplementerId),
                     new XElement("Count", order.Count),
                     new XElement("Sum", order.Sum),
                     new XElement("Status", order.Status),

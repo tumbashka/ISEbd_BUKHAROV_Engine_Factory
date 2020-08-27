@@ -329,6 +329,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMessages.resx">
+      <DependentUpon>FormMessages.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportEngineDetails.resx">
       <DependentUpon>FormReportEngineDetails.cs</DependentUpon>
     </EmbeddedResource>

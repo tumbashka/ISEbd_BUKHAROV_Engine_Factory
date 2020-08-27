@@ -65,10 +65,11 @@ namespace EngineFactoryListImplement.Implements
             {
                 if (model != null)
                 {
-                    if (order.Id == model.Id || (model.DateFrom.HasValue && model.DateTo.HasValue && order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo)
-                    || model.ClientId.HasValue && order.ClientId == model.ClientId
-                    || model.FreeOrders.HasValue && model.FreeOrders.Value
-                    || model.ImplementerId.HasValue && order.ImplementerId == model.ImplementerId && order.Status == OrderStatus.Выполняется)
+                    if ((model.Id.HasValue && order.Id == model.Id)
+                         || (model.DateFrom.HasValue && model.DateTo.HasValue && order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo)
+                         || (order.ClientId == model.ClientId)
+                         || (model.FreeOrders.HasValue && model.FreeOrders.Value && !order.ImplementerId.HasValue)
+                         || (model.ImplementerId.HasValue && order.ImplementerId == model.ImplementerId && order.Status == OrderStatus.Выполняется))
                     {
                         result.Add(CreateViewModel(order));
                         break;
@@ -79,33 +80,93 @@ namespace EngineFactoryListImplement.Implements
             }
             return result;
         }
+
         private Order CreateModel(OrderBindingModel model, Order order)
-        {      
+        {
+            Engine Engine = null;
+            foreach (Engine s in source.Engines)
+            {
+                if (s.Id == model.EngineId)
+                {
+                    Engine = s;
+                    break;
+                }
+            }
+            Client client = null;
+            foreach (Client c in source.Clients)
+            {
+                if (c.Id == model.ClientId)
+                {
+                    client = c;
+                    break;
+                }
+            }
+            Implementer implementer = null;
+            foreach (Implementer i in source.Implementers)
+            {
+                if (i.Id == model.ImplementerId)
+                {
+                    implementer = i;
+                    break;
+                }
+            }
+            if (Engine == null || client == null || model.ImplementerId.HasValue && implementer == null)
+            {
+                throw new Exception("Элемент не найден");
+            }
             order.EngineId = model.EngineId;
-            order.ClientId = (int)model.ClientId;
+            order.ClientId = model.ClientId.Value;
+            order.ImplementerId = (int)model.ImplementerId;
             order.Count = model.Count;
-            order.ImplementerId = model.ImplementerId;
-            order.Sum = model.Sum;
+            order.Sum = model.Count * Engine.Price;
             order.Status = model.Status;
             order.DateCreate = model.DateCreate;
             order.DateImplement = model.DateImplement;
             return order;
         }
+
         private OrderViewModel CreateViewModel(Order order)
         {
-            string engineName = "";
-            for (int j = 0; j < source.Engines.Count; ++j)
+            Engine Engine = null;
+            foreach (Engine s in source.Engines)
             {
-                if (source.Engines[j].Id == order.EngineId)
+                if (s.Id == order.EngineId)
                 {
-                    engineName = source.Engines[j].EngineName;
+                    Engine = s;
                     break;
                 }
+            }
+            Client client = null;
+            foreach (Client c in source.Clients)
+            {
+                if (c.Id == order.ClientId)
+                {
+                    client = c;
+                    break;
+                }
+            }
+            Implementer implementer = null;
+            foreach (Implementer i in source.Implementers)
+            {
+                if (i.Id == order.ImplementerId)
+                {
+                    implementer = i;
+                    break;
+                }
+            }
+            if (Engine == null || client == null || order.ImplementerId.HasValue && implementer == null)
+            {
+                throw new Exception("Элемент не найден");
             }
             return new OrderViewModel
             {
                 Id = order.Id,
-                EngineName = engineName,
+                EngineId = order.EngineId,
+                EngineName = Engine.EngineName,
+                ClientId = order.ClientId,
+                ClientFIO = client.ClientFIO,
+                ImplementerId = order.ImplementerId,
+                ImplementerFIO = implementer.ImplementerFIO,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,
